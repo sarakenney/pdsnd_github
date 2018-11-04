@@ -82,7 +82,7 @@ def load_data(city, month, day):
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
     # filter by month if applicable
-    if month != 'All':
+    if month.title() != 'All':
         # use the index of the months list to get the corresponding int
         months = ['January', 'February', 'March' , 'April', 'May' ,'June']
         month_int = months.index(month) + 1
@@ -91,7 +91,7 @@ def load_data(city, month, day):
         df = df[df['month'] == month_int]
 
     # filter by day of week if applicable
-    if day != 'All':
+    if day.title() != 'All':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
     return df
@@ -217,7 +217,7 @@ def more_data(df):
         df_slice = df.iloc[st: st+5]
         print(df_slice)
         st += 5
-        more_data = input('\nWould you like to see moreeeeee data? Enter yes or   no.\n')
+        more_data = input('\nWould you like to see more data? Enter yes or no.\n')
 
 
 
