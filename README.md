@@ -9,9 +9,20 @@ The readme file was created 11/4/18 as part of a new project for Udacity.
 ## Description
 This Project analyzes raw data from Motivate, a bike-share system provider. It pulls data from three CSV files and provides the following stats:
 1. Popular times of Travel
+* Most common month
+* Most common day of weekday
+* Most common hour of day
 2. Popular Stations and Trip
+* Most common end station
+* Most common start station
+* Most common trip from start to end
 3. Trip Duration
+* Total travel time
+* Average travel time
 4. User info
+* Counts of each user type
+* Counts of each gender
+* Earliest,  most recent, most common year of birth (only available for NYC and Chicago)
 
 The Project also prompts the user to choose from the following options to filter the raw data:
 
