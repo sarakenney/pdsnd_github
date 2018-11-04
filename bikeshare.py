@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 CITY_DATA = { 'Chicago': 'chicago.csv',
               'New York City': 'new_york_city.csv',
               'Washington': 'washington.csv' }
-
+    #the following function accepts user inputs 
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -60,7 +60,7 @@ def get_filters():
     print('-'*40)
     return city, month, day
 
-
+    #the following function filters by user inputs
 def load_data(city, month, day):
     """
     Loads data for the specified city and filters by month and day if applicable.
@@ -93,17 +93,17 @@ def load_data(city, month, day):
     # filter by day of week if applicable
     if day != 'All':
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == day.title()]                               
+        df = df[df['day_of_week'] == day.title()]
     return df
 
-
+    #the following function displays time stats
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...')
     start_time = time.time()
 
-    # TO DO: display the most common month 
+    # TO DO: display the most common month
     popular_month = df['month'].mode()[0]
     months = ['January', 'February', 'March' , 'April', 'May' ,'June']
     month_index = popular_month - 1
@@ -113,12 +113,12 @@ def time_stats(df):
     print('Most Popular Day of Week:', popular_day)
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
-    popular_hour = df['hour'].mode().iloc[0]  
+    popular_hour = df['hour'].mode().iloc[0]
     print('Most Popular Hour:', popular_hour)
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+    #the following function displays station stats
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -142,7 +142,7 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+    # the following function displays trip stats
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -158,20 +158,20 @@ def trip_duration_stats(df):
     d = datetime(1,1,1) + sec
     print("The total travel time is \n DAYS:HOURS:MIN:SEC")
     print("%d:%d:%d:%d" % (d.day-1, d.hour, d.minute, d.second))
-    
-    
+
+
     # TO DO: display mean travel time
     mean_travel = df['Trip Duration'].mean()
     sec = timedelta(seconds=int(mean_travel))
     d = datetime(1,1,1) + sec
     print("The mean travel time is \n DAYS:HOURS:MIN:SEC")
     print("%d:%d:%d:%d" % (d.day-1, d.hour, d.minute, d.second))
-    
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
+    #The following function displays various user stats
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
