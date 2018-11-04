@@ -217,7 +217,7 @@ def more_data(df):
         df_slice = df.iloc[st: st+5]
         print(df_slice)
         st += 5
-        more_data = input('\nWould you like to see moreeeeee data? Enter yes or   no.\n')
+        more_data = input('\nWould you like to see more data? Enter yes or no.\n')
 
 
 
